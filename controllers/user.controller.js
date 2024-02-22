@@ -79,6 +79,25 @@ const login = async (req, res) => {
   }
 };
 
+const updateTherapist = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ success: false, message: errors.array() });
+  }
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.user._id,
+      {
+        therapist: req.body,
+      },
+      { new: true }
+    );
+    res.status(201).json({ success: true, message: "therapist updated" });
+  } catch (e) {
+    res.status(500).json({ success: false, message: e.message });
+  }
+};
+
 const temp = async (req, res) => {
   try {
   } catch (e) {
@@ -86,4 +105,4 @@ const temp = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+module.exports = { register, login, updateTherapist };

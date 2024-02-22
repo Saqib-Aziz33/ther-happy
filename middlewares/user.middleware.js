@@ -53,8 +53,14 @@ const loginValidator = [
   body("password").notEmpty().withMessage("password is required"),
 ];
 
+const updateTherapistValidator = [
+  body("train").notEmpty().withMessage("train is required"),
+  body("tone").notEmpty().withMessage("tone is required"),
+];
+
 module.exports = {
   registerValidator,
   loginValidator,
   isLogedin,
+  updateTherapistValidator,
 };

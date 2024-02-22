@@ -26,6 +26,16 @@ const schema = new mongoose.Schema({
     type: String,
     required: [true, "age_group is required"],
   },
+  therapist: {
+    train: {
+      type: String,
+      required: false,
+    },
+    tone: {
+      type: String,
+      required: false,
+    },
+  },
 });
 
 const User = mongoose.model("User", schema);
