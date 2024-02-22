@@ -49,6 +49,7 @@ app.get("/", (req, res) => {
 app.use("/api/users", require("./routes/user.router"));
 app.use("/api/plans", require("./routes/plan.router"));
 app.use("/api/reviews", require("./routes/review.router"));
+app.use("/api/music", require("./routes/music.router"));
 // handle out of scope URL's
 app.all("*", (req, res) => {
   res.status(404).json({ success: false, message: `path not found` });
