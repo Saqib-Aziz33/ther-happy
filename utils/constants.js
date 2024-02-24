@@ -1,5 +1,6 @@
 const PAYMENT_METHODS = {
   stripe: "stripe",
+  paypal: "paypal",
 };
 
 const MUSIC_PATH = [

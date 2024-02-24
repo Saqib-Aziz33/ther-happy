@@ -22,7 +22,7 @@ const schema = new mongoose.Schema(
     payment_method: {
       type: String,
       required: true,
-      enum: [PAYMENT_METHODS.stripe],
+      enum: [PAYMENT_METHODS.stripe, PAYMENT_METHODS.paypal],
     },
     paid: {
       type: Boolean,
@@ -36,6 +36,16 @@ const schema = new mongoose.Schema(
     },
     token: String,
     receipt: String,
+    paypal: {
+      payerId: String,
+      paymentId: String,
+      payer_info: {
+        type: Map,
+        of: {
+          type: mongoose.Schema.Types.Mixed,
+        },
+      },
+    },
   },
   { timestamps: true }
 );
